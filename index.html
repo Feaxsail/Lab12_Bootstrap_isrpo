@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="custom.css">
 </head>
 <body>
-    <!-- Навигационная панель (шаг 4) -->
+    <!-- Навигационная панель -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">MyPortfolio</a>
@@ -37,7 +37,7 @@
         </div>
     </nav>
 
-    <!-- Hero секция (шаг 4) -->
+    <!-- Hero секция -->
     <div class="container-fluid bg-light py-5" id="home">
         <div class="container text-center">
             <h1 class="display-4">Добро пожаловать!</h1>
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <!-- Секция с карточками (шаг 5) -->
+    <!-- Секция с карточками -->
     <div class="container my-5" id="services">
         <h2 class="text-center mb-5">Наши услуги</h2>
         <div class="row g-4">
@@ -83,7 +83,66 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+
+    <div class="container my-5" id="contact">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2 class="text-center mb-4">Свяжитесь с нами</h2>
+                <form id="contactForm" class="needs-validation" novalidate>
+                    <!-- Поле Имя -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Имя</label>
+                        <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
+                        <div class="invalid-feedback">Пожалуйста, введите имя.</div>
+                    </div>
+                    <!-- Поле Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        <div class="invalid-feedback">Введите корректный email.</div>
+                    </div>
+                    <!-- Поле Сообщение -->
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Сообщение</label>
+                        <textarea class="form-control" id="message" rows="3" required></textarea>
+                        <div class="invalid-feedback">Введите сообщение.</div>
+                    </div>
+                    <!-- Чекбокс согласия -->
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="agree" required>
+                        <label class="form-check-label" for="agree">Я согласен на обработку данных</label>
+                        <div class="invalid-feedback">Необходимо согласие.</div>
+                    </div>
+                    <!-- Кнопка отправки -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        (function() {
+            'use strict';
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    alert('Форма успешно отправлена!');
+                    form.reset();
+                    form.classList.remove('was-validated');
+                }
+                form.classList.add('was-validated');
+            }, false);
+        })();
+    </script>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
